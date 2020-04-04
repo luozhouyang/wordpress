@@ -21,9 +21,11 @@ MYSQL_PASSWORD=$YOUR_MYSQL_PASS
 
 ## 启动docker容器
 
-在`docker-compose.yaml`文件按需配置你自己的域名，把`luozhouyang.com`和`www.luozhouyang.com`替换成你自己的域名。
+在`docker-compose.yaml`文件和`nginx-conf`目录下的两个配置文件，按需配置你自己的域名，即把**所有**的`luozhouyang.com`和`www.luozhouyang.com`替换成你自己的域名。
 
 ```bash
+cd $PROJECT_PATH
+# 我这里是 /root/GitHub/luozhouyang/wordpress
 docker-compose up -d
 ```
 
@@ -35,6 +37,8 @@ crontab -e
 # 增加一行
 * * * * 7 /root/GitHub/luozhouyang/wordpress/ssl_renew.sh >> /var/log/cron.log 2>&1
 ```
+
+上面的路径换成你自己的路径。
 
 更多`crontab`的文档自行Google。
 
